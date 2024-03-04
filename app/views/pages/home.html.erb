@@ -1,2 +1,69 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+  <!-- Primera carta -->
+  <div class="card mb-3 custom-card">
+    <div class="row g-0">
+      <div class="col-md-8">
+        <div class="card-body">
+          <h2 class="card-title text-center">UNA BUENA SALUD EMPIEZA POR UNA BUENA ALIMENTACION.</h2>
+          <p class="card-text text-center">
+            ¿Quieres prestar más atención a tu alimentación? Controla tus comidas, conoce tus hábitos y alcanza tus objetivos con MealMate.
+          </p>
+          <button class="btn btn-primary">EMPIEZA AHORA</button>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <%= image_tag "foto1.jpg", class: "img-fluid rounded-circle", alt: "Imagen de la primera carta" %>
+      </div>
+    </div>
+  </div>
+
+  <!-- Segunda carta -->
+  <div class="card mb-3 custom-card">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <%= image_tag "foto2.jpg", class: "img-fluid rounded-circle", alt: "Imagen de la segunda carta" %>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h2 class="card-title text-center">Elige entre cientos de recetas saludabes y faciles</h2>
+          <p class="card-text text-center">Accede a nuestras recetas sencillas que te ayudaran a alcanzar tus objetivos</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tercera carta -->
+  <div class="card mb-3 custom-card">
+    <div class="card-body text-center">
+      <h2 class="card-title">Las herramientas para tus objetivos</h2>
+      <p class="card-text">
+        ¿Quieres perder peso, tonificarte o invertir en tu salud general? Te ofrecemos las funciones que necesitas para conseguirlo.
+      </p>
+      <div class="row">
+        <!-- Primera carta horizontal -->
+        <div class="col-4">
+          <%= image_tag "registro.png", class: "img-fluid", alt: "Imagen de la primera carta horizontal" %>
+          <h3>Registro simple</h3>
+          <p>Párrafo de la primera carta horizontal</p>
+        </div>
+        <!-- Segunda carta horizontal -->
+        <div class="col-4">
+          <%= image_tag "target.png", class: "img-fluid", alt: "Imagen de la segunda carta horizontal" %>
+          <h3>Alcanza tus metas</h3>
+          <p>Párrafo de la segunda carta horizontal</p>
+        </div>
+        <!-- Tercera carta horizontal -->
+        <div class="col-4">
+          <%= image_tag "shoe.png", class: "img-fluid", alt: "Imagen de la tercera carta horizontal" %>
+          <h3>Mantén la motivación</h3>
+          <p>Párrafo de la tercera carta horizontal</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botón "COMIENZA AHORA" -->
+  <div class="text-center">
+    <%= link_to "COMIENZA AHORA", "#", class: "btn btn-primary btn-lg btn-block" %>
+  </div>
+</div>
