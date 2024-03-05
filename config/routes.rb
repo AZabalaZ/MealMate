@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
+  get "foods", to: "meals#foods"
+  get "recipes", to: "recipes#index"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

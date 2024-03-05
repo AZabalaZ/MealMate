@@ -1,0 +1,28 @@
+<%# <div class="container">
+
+  <h1>FOODS</h1>
+
+  <input type="text">
+  <button>Search</button>
+
+  <h2>agregar alimento</h2>
+  <div>
+    <input type="text" placeholder="Marca (opcional)">
+    <input type="text" placeholder="Nombre">
+    <input type="text" placeholder="Kcal/Calorias">
+    <input type="text" placeholder="100gm">
+    <button>agregar</button>
+  </div>
+</div> %>
+
+//list of foods
+
+<ul>
+
+  <% @foods.each do |food| %>
+
+    <li><%= food.name %></li>
+
+  <% end %>
+
+</ul>
