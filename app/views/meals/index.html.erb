@@ -11,7 +11,7 @@
             <h5 class="card-title text-center"><%= meal.name %></h5>
           </div>
           <div class="card-footer text-center">
-            <button class="btn btn-primary btn-icon"><i class="fa-solid fa-plus"></i></button>
+            <button class="btn btn-primary btn-icon" id="add-button-<%= meal.id %>" data-action="add"><i class="fa-solid fa-plus"></i></button>
             <button class="btn btn-primary btn-ver-receta">Ver receta</button>
             <button class="btn btn-outline-danger btn-corazon"><i class="fa-solid fa-heart"></i></button>
           </div>
@@ -20,3 +20,24 @@
     <% end %>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('[data-action="add"]').forEach(function(button) {
+      button.addEventListener('click', function() {
+        var icon = button.querySelector('i');
+        if (icon.classList.contains('fa-plus')) {
+          icon.classList.remove('fa-plus');
+          icon.classList.add('fa-check');
+          icon.style.color = '#63E6BE';
+          button.setAttribute('data-action', 'check');
+        } else {
+          icon.classList.remove('fa-check');
+          icon.classList.add('fa-plus');
+          icon.style.color = ''; // Restaura el color original del icono
+          button.setAttribute('data-action', 'add');
+        }
+      });
+    });
+  });
+</script>
