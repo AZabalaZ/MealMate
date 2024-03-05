@@ -1,0 +1,11 @@
+.card-footer {
+  display: none;
+}
+
+.card:hover .card-footer {
+  display: block;
+}
+
+.card {
+  border: none;
+}
