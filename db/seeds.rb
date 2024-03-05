@@ -8,6 +8,9 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+Meal.create(name: "Yougurt con frutas", image_url: "foto1.jpg")
+
+
 Ingredient.create(name: "chicken", calories: 200)
 Ingredient.create(name: "beef", calories: 300)
 Ingredient.create(name: "pork", calories: 250)
@@ -34,3 +37,4 @@ Meal.create(name: "chicken and rice", description: "grilled chicken with rice", 
 Meal.create(name: "beef and potatoes", description: "grilled beef with potatoes", calories: 400, favorite: true, calories_sum: 400)
 Meal.create(name: "pork and beans", description: "grilled pork with beans", calories: 350, favorite: true, calories_sum: 350)
 Meal.create(name: "vegetable stir fry", description: "mixed vegetables stir fried", calories: 200, favorite: true, calories_sum: 200)
+
