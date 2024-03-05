@@ -10,9 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_05_150402) do
+
+ActiveRecord::Schema[7.1].define(version: 2024_03_05_182632) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string "name"
+    t.integer "calories"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "join_tables", force: :cascade do |t|
+    t.bigint "meals_id", null: false
+    t.bigint "ingredients_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ingredients_id"], name: "index_join_tables_on_ingredients_id"
+    t.index ["meals_id"], name: "index_join_tables_on_meals_id"
+  end
 
   create_table "meals", force: :cascade do |t|
     t.string "name"
@@ -21,8 +39,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_05_150402) do
     t.boolean "favorite"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "ingredients", default: [], array: true
     t.string "image_url"
+    t.integer "calories_sum"
+
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -54,6 +73,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_05_150402) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "join_tables", "ingredients", column: "ingredients_id"
+  add_foreign_key "join_tables", "meals", column: "meals_id"
   add_foreign_key "recipes", "meals", column: "meals_id"
   add_foreign_key "recipes", "users", column: "users_id"
 end
