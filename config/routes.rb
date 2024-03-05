@@ -2,10 +2,14 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
-  get "/meals", to: "meals#index"
+  resources :meals do
+    member do
+      post 'add_to_my_recipes'
+    end
+  end
 
   get "foods", to: "meals#foods"
-  get "recipes", to: "recipes#index"
+  get "/recipes", to: "recipes#index"
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
