@@ -1,4 +1,4 @@
 class JoinTable < ApplicationRecord
-  belongs_to :meals
-  belongs_to :ingredients
+  belongs_to :meal
+  belongs_to :ingredient
 end

@@ -11,7 +11,16 @@
             <h5 class="card-title text-center"><%= meal.name %></h5>
           </div>
           <div class="card-footer text-center">
-            <button class="btn btn-primary btn-icon"><i class="fa-solid fa-plus"></i></button>
+            <%# <button class="btn btn-primary btn-icon"><i class="fa-solid fa-plus"></i></button> %>
+            <%= form_with url: add_to_my_recipes_meal_path(meal), method: :post do |form| %>
+
+  <%= form.button class: "btn btn-primary btn-icon", id: "add-button-#{meal.id}" do %>
+
+    <i class="fa-solid fa-plus"></i>
+
+  <% end %>
+
+<% end %>
             <button class="btn btn-primary btn-ver-receta">Ver receta</button>
             <button class="btn btn-outline-danger btn-corazon"><i class="fa-solid fa-heart"></i></button>
           </div>

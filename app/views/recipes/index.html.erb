@@ -11,3 +11,7 @@
 </div>
 </div>
 </div>
+
+<% @recipes.each do |recipe| %>
+<li><%= recipe.meal.name %></li>
+<% end %>
