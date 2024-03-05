@@ -4,7 +4,9 @@
     <% @meals.each do |meal| %>
       <div class="col-md-4">
         <div class="card">
-          <%= image_tag meal.image_url, class: "card-img-top img-fluid", alt: meal.name, id: "meal-image-#{meal.id}" %>
+          <% if meal.image_url.present? %>
+            <%= image_tag meal.image_url, class: "card-img-top img-fluid", alt: meal.name, id: "meal-image-#{meal.id}" %>
+          <% end %>
           <div class="card-body">
             <h5 class="card-title text-center"><%= meal.name %></h5>
           </div>
