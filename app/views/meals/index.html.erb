@@ -11,6 +11,7 @@
             <h5 class="card-title text-center"><%= meal.name %></h5>
           </div>
           <div class="card-footer text-center">
+
             <%# <button class="btn btn-primary btn-icon"><i class="fa-solid fa-plus"></i></button> %>
             <%= form_with url: add_to_my_recipes_meal_path(meal), method: :post do |form| %>
 
@@ -29,3 +30,24 @@
     <% end %>
   </div>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('[data-action="add"]').forEach(function(button) {
+      button.addEventListener('click', function() {
+        var icon = button.querySelector('i');
+        if (icon.classList.contains('fa-plus')) {
+          icon.classList.remove('fa-plus');
+          icon.classList.add('fa-check');
+          icon.style.color = '#63E6BE';
+          button.setAttribute('data-action', 'check');
+        } else {
+          icon.classList.remove('fa-check');
+          icon.classList.add('fa-plus');
+          icon.style.color = ''; // Restaura el color original del icono
+          button.setAttribute('data-action', 'add');
+        }
+      });
+    });
+  });
+</script>
