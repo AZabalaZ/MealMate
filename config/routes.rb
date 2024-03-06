@@ -7,7 +7,11 @@ Rails.application.routes.draw do
       post 'add_to_my_recipes'
     end
   end
-
+  resources :ingredients do
+    collection do
+      get 'search'
+    end
+  end
   get "foods", to: "meals#foods"
   get "/recipes", to: "recipes#index"
 
