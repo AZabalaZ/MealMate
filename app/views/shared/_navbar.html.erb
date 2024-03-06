@@ -4,6 +4,8 @@
       <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
     <% end %>
 
+    <span class="navbar-text mx-auto">MealMate</span>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -12,7 +14,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <%= link_to "screen1", "#", class: "nav-link" %>
+            <%= link_to "Meals", meals_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "screen2", "#", class: "nav-link" %>
@@ -29,7 +31,7 @@
           </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Profile", edit_user_registration_path , class: "dropdown-item" %>
-              <%= link_to "Favorites", "#" , class: "dropdown-item" %>
+              <%= link_to "Favorites", favorites_path , class: "dropdown-item" %>
               <%= link_to "My recipes", recipes_path , class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>

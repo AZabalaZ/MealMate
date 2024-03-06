@@ -5,11 +5,15 @@ Rails.application.routes.draw do
   resources :meals do
     member do
       post 'add_to_my_recipes'
+      post 'add_to_favorites'
+      post 'remove_from_favorites'
+      delete 'remove_from_favorites', to: 'meals#remove_from_favorites'
     end
   end
 
   get "foods", to: "meals#foods"
   get "/recipes", to: "recipes#index"
+  get "/favorites", to: "meals#favorites"
 
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

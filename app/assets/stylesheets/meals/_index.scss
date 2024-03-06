@@ -8,4 +8,10 @@
 
 .card {
   border: none;
+  height: 100%;
+}
+
+.card-img-top {
+  object-fit: cover; // Para que la imagen se ajuste al tamaño de la tarjeta
+  height: 200px; // Altura predeterminada para la imagen
 }
