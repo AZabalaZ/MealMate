@@ -37,3 +37,15 @@ Meal.create(name: "chicken and rice", image_url: "foto1.jpg", description: "gril
 Meal.create(name: "beef and potatoes", image_url: "foto1.jpg", description: "grilled beef with potatoes", calories: 400, favorite: true, calories_sum: 400)
 Meal.create(name: "pork and beans", image_url: "foto1.jpg", description: "grilled pork with beans", calories: 350, favorite: true, calories_sum: 350)
 Meal.create(name: "vegetable stir fry", image_url: "foto1.jpg", description: "mixed vegetables stir fried", calories: 200, favorite: true, calories_sum: 200)
+
+# Crear algunas comidas
+Meal.create(name: "Yougurt con frutas", image_url: "foto1.jpg")
+Meal.create(name: "Pollo al horno", description: "Delicioso pollo asado al horno.", image_url: "pollo.jpg")
+Meal.create(name: "Ensalada César", description: "Clásica ensalada César con pollo.", image_url: "ensalada.jpg")
+
+# Agregar las recetas como favoritas
+meal1 = Meal.find_by(name: "Pollo al horno")
+meal2 = Meal.find_by(name: "Ensalada César")
+
+Recipe.create(meal: meal1, user_id: nil) # nil indica que es una receta favorita genérica
+Recipe.create(meal: meal2, user_id: nil) # nil indica que es una receta favorita genérica

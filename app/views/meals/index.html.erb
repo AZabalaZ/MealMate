@@ -1,29 +1,33 @@
 <div class="container">
-  <h1 style="text-align: center;">MealMate</h1>
   <div class="row">
     <% @meals.each do |meal| %>
       <div class="col-md-4">
-        <div class="card">
+        <div class="card mb-4">
           <% if meal.image_url.present? %>
             <%= image_tag meal.image_url, class: "card-img-top img-fluid", alt: meal.name, id: "meal-image-#{meal.id}" %>
           <% end %>
           <div class="card-body">
             <h5 class="card-title text-center"><%= meal.name %></h5>
           </div>
+
           <div class="card-footer text-center">
-
+            <div class="btn-group" role="group" aria-label="Button group">
             <%# <button class="btn btn-primary btn-icon"><i class="fa-solid fa-plus"></i></button> %>
-            <%= form_with url: add_to_my_recipes_meal_path(meal), method: :post do |form| %>
+              <%= form_with url: add_to_my_recipes_meal_path(meal), method: :post do |form| %>
+                <%= form.button class: "btn btn-icon", id: "add-button-#{meal.id}" do %>
+                  <i class="fa-solid fa-plus"></i>
+                <% end %>
+              <% end %>
 
-  <%= form.button class: "btn btn-primary btn-icon", id: "add-button-#{meal.id}" do %>
+              <button class="btn btn-ver-receta mx-1">Ver receta</button>
 
-    <i class="fa-solid fa-plus"></i>
+              <%= form_with(url: add_to_favorites_meal_path(meal), method: :post) do |form| %>
+                <%= form.button type: :submit, class: 'btn btn-corazon' do %>
+                  <i class="fa-solid fa-heart"></i>
+                <% end %>
+              <% end %>
+            </div>
 
-  <% end %>
-
-<% end %>
-            <button class="btn btn-primary btn-ver-receta">Ver receta</button>
-            <button class="btn btn-outline-danger btn-corazon"><i class="fa-solid fa-heart"></i></button>
           </div>
         </div>
       </div>
