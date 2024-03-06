@@ -13,5 +13,6 @@
 </div>
 
 <% @recipes.each do |recipe| %>
-<li><%= recipe.meal.name %></li>
+<li>Comida: <%= recipe.meal.name %></li>
+<%= link_to "Delete", recipes_path(recipe), method: :delete %>
 <% end %>

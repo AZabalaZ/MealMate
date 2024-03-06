@@ -8,8 +8,6 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-
-
 Ingredient.create(name: "chicken", calories: 200)
 Ingredient.create(name: "beef", calories: 300)
 Ingredient.create(name: "pork", calories: 250)

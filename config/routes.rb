@@ -10,7 +10,11 @@ Rails.application.routes.draw do
       delete 'remove_from_favorites', to: 'meals#remove_from_favorites'
     end
   end
-
+  resources :ingredients do
+    collection do
+      get 'search'
+    end
+  end
   get "foods", to: "meals#foods"
   get "/recipes", to: "recipes#index"
   get "/favorites", to: "meals#favorites"

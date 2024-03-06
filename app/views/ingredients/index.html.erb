@@ -1,0 +1,23 @@
+<div data-controller="search-ingredients">
+  <%= form_with(url: ingredients_path, method: :get, html: {data:{search_ingredients_target:"form"}}) do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search ingredients...",
+  data: {
+    search_ingredients_target:"input",
+    action: "keyup->search-ingredients#update"
+    } %>
+  <%= submit_tag "Search" %>
+  <% end %>
+
+  <%= render "list", ingredients: @ingredients %>
+</div>
+
+
+  <%# <h2>agregar alimento</h2>
+  <div>
+    <input type="text" placeholder="Marca (opcional)">
+    <input type="text" placeholder="Nombre">
+    <input type="text" placeholder="Kcal/Calorias">
+    <input type="text" placeholder="100gm">
+    <button>agregar</button>
+  </div>
+</div> %>
