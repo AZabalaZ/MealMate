@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :meals
   has_many :recipes
-  has_many :favorite_meals, through: :recipes, source: :meal
+  # has_many :favorite_meals, through: :recipes, source: :meal
 
   def gasto_calorico
     if sex == "Masculine"
