@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  background-color: black;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +10,42 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-lewagon .navbar-nav .nav-link {
+  color: white;
+}
+
+.navbar-lewagon .navbar-brand {
+  color: white;
+  font-style: italic;
+  font-weight: bold;
+}
+
+// .navbar-lewagon .navbar-brand span {
+//   cursor: pointer;
+//   color: white;
+//   transition: color 0.3s;
+// }
+
+.navbar-brand i {
+  color: white; /* Cambiar color del texto a blanco */
+  text-decoration: none; /* Eliminar subrayado */
+}
+
+.navbar-brand i:hover {
+  text-decoration: none; /* Eliminar subrayado al pasar el mouse */
+  color: #f10909;
+}
+
+.navbar-brand a:hover {
+  text-decoration: none; /* Quitar subrayado al pasar el mouse */
+}
+
+.navbar-brand a {
+  text-decoration: none; /* Quitar subrayado */
+}
+
+.navbar-lewagon .navbar-nav .nav-link:hover {
+  color: #f10909;
 }
