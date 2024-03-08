@@ -10,15 +10,15 @@ Rails.application.routes.draw do
       delete 'remove_from_favorites', to: 'meals#remove_from_favorites'
     end
   end
+  resources :recipes, only: [:index, :destroy]
   resources :ingredients do
     collection do
       get 'search'
     end
   end
-  get "foods", to: "meals#foods"
+  # get "foods", to: "meals#foods"
   get "/recipes", to: "recipes#index"
   get "/favorites", to: "meals#favorites"
-
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

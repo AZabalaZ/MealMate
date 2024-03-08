@@ -4,9 +4,9 @@ class MealsController < ApplicationController
     @meals = Meal.all
   end
 
-  def foods
-    @foods = Meal.all
-  end
+  # def foods
+  #   @foods = Meal.all
+  # end
 
   def favorites
     @favorite_meals = current_user.recipes.map(&:meal)
