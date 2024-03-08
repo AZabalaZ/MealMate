@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   # get "foods", to: "meals#foods"
   get "/recipes", to: "recipes#index"
   get "/favorites", to: "meals#favorites"
-
+  get "/my_ingredients", to: "ingredients#my_ingredients", as: :my_ingredients
+  # post "save_meal", to: "meals#save_meal", as: :save_meal
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

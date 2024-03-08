@@ -21,6 +21,10 @@ class IngredientsController < ApplicationController
     end
   end
 
+  def my_ingredients
+    @my_ingredients = Ingredient.all
+  end
+
   private
 
   def ingredient_params
