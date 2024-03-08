@@ -1,4 +1,4 @@
-class RegistrationsController < Devise::RegistrationsController
+class AregistrationsController < Devise::RegistrationsController
   def update
     self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
 
