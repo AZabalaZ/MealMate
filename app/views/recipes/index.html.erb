@@ -14,5 +14,6 @@
 
 <% @recipes.each do |recipe| %>
 <li>Comida: <%= recipe.meal.name %></li>
-<%= link_to "Delete", recipes_path(recipe), method: :delete %>
-<% end %>
+ <%= form_with(url: recipe_path(recipe), method: :delete, data: { confirm: "¿Estás seguro que deseas eliminar esta receta?" }) do |form| %>
+      <%= form.submit "Eliminar" %>
+    <% end %><% end %>
