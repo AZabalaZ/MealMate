@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   get "/recipes", to: "recipes#index"
   get "/favorites", to: "meals#favorites"
   get "/my_ingredients", to: "ingredients#my_ingredients", as: :my_ingredients
+  get "/my_information", to: "user_information#show", as: :my_information
+
   # post "save_meal", to: "meals#save_meal", as: :save_meal
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

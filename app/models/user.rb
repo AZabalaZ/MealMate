@@ -6,11 +6,23 @@ class User < ApplicationRecord
   has_many :meals
   has_many :recipes
   # has_many :favorite_meals, through: :recipes, source: :meal
+  enum activity: { sedentary: 0, lightly_active: 1, moderately_active: 2, very_active: 3, extra_active: 4 }
+  enum goal: { lose_weight: 0, maintain_weight: 1, gain_weight: 2 }
+
+  def activity=(value)
+    value = value.to_i if value.is_a?(String) # Convertir de nuevo a entero si es una cadena
+    super(value)
+  end
+
+  def goal=(value)
+    value = value.to_i if value.is_a?(String) # Convertir de nuevo a entero si es una cadena
+    super(value)
+  end
 
   def gasto_calorico
     if sex == "Masculine"
     66.763 + (13.751 * self.weight) + (5.0033 * self.height) - (6.55 * self.age)
-    elsif sex == "Feminine"
+    elsif sex == "Femenine"
     665.51 + (9.463 * self.weight) + (1.8 * self.height) - (4.6756 * self.age)
     else
       0
@@ -19,11 +31,31 @@ class User < ApplicationRecord
 
   def requerimientos
     gc = self.gasto_calorico
+    if goal == "gain_weight"
     {
       poca_actividad: gc * 1.375,
       actividad_moderada: gc * 1.55,
       actividad_intensa: gc * 1.725
     }
+    elsif goal == "lose_weight"
+    {
+      poca_actividad: gc * 0.8,
+      actividad_moderada: gc * 0.9,
+      actividad_intensa: gc * 1
+    }
+    elsif goal == "maintain_weight"
+    {
+      poca_actividad: gc * 1.2,
+      actividad_moderada: gc * 1.375,
+      actividad_intensa: gc * 1.55
+    }
+    else
+      {
+        poca_actividad: 0,
+        actividad_moderada: 0,
+        actividad_intensa: 0
+      }
+    end
   end
 end
 

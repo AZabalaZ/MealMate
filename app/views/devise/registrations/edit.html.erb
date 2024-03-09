@@ -15,8 +15,9 @@
       <%= f.input :weight %>
 
       <!-- Cambiando a barras desplegables -->
-      <%= f.input :activity, as: :select, collection: ['Sedentary', 'Lightly Active', 'Moderately Active', 'Very Active', 'Extra Active'] %>
-      <%= f.input :goal, as: :select, collection: ['Lose Weight', 'Maintain Weight', 'Gain Weight'] %>
+      <%# <%= f.input :activity, as: :select, collection: User.activities.keys.map.with_index { |a, i| [a.humanize, i] } %>
+      <%= f.input :goal, as: :select, collection: User.goals.keys.map.with_index { |g, i| [g.humanize, i] } %>
+
 
       <%= f.input :current_password,
                   hint: "we need your current password to confirm your changes",

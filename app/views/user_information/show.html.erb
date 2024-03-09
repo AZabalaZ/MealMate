@@ -1,0 +1,13 @@
+<div class="container">
+  <h2>Nueva Vista</h2>
+
+  <p>Gasto Calórico: <%= @gasto_calorico.round %>kcal</p>
+  <p>Requerimientos:</p>
+  <ul>
+    <li>Poca Actividad (1-3 dias): <%= @requerimientos[:poca_actividad].round %>kcal</li>
+    <li>Actividad Moderada (3-5 dias): <%= @requerimientos[:actividad_moderada].round %>kcal</li>
+    <li>Actividad Intensa (6-7 dias): <%= @requerimientos[:actividad_intensa].round %>kcal</li>
+  </ul>
+
+  <%= link_to "Back", :back %>
+</div>
