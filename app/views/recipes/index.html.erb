@@ -1,19 +1,23 @@
 
 <div class="container">
-<h1>My recipes</h1>
-<div class="d-flex">
-<div class="container">
-<h2>lista</h2>
+  <h1>My recipes</h1>
+  <div class="d-flex">
+    <div class="container">
+      <h2>Recipe</h2>
+      <% @recipes.each do |recipe| %>
+        <div class="recipe">
+          <p>Comida: <%= recipe.meal.name %></p>
+          <%= form_with(url: recipe_path(recipe), method: :delete, data: { confirm: "¿Estás seguro que deseas eliminar esta receta?" }) do |form| %>
+            <%= form.submit "Eliminar" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <div class="container">
+      <h2>Time</h2>
+       <form action="#">
+        <input type="text" id="time" name="time">
+      </form>
+    </div>
+  </div>
 </div>
-
-<div class="container">
-<h2>time</h2>
-</div>
-</div>
-</div>
-
-<% @recipes.each do |recipe| %>
-<li>Comida: <%= recipe.meal.name %></li>
- <%= form_with(url: recipe_path(recipe), method: :delete, data: { confirm: "¿Estás seguro que deseas eliminar esta receta?" }) do |form| %>
-      <%= form.submit "Eliminar" %>
-    <% end %><% end %>

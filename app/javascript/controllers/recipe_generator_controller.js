@@ -26,7 +26,7 @@ export default class extends Controller {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${this.apyKey}`
       },
-      body: JSON.stringify({model: "gpt-3.5-turbo", "messages": [{"role": "user", "content": `Give me a 5 recipes name and calories for the following ingredients:${this.ingredients.join(", ")}`}],
+      body: JSON.stringify({model: "gpt-3.5-turbo", "messages": [{"role": "user", "content": `Give me a 5 recipes name and calories for the following ingredients:${this.ingredients.join(", ")}. Specify the portion size in grams.`}],
 
       "temperature": 0.7})
       })
@@ -44,28 +44,45 @@ export default class extends Controller {
       })
     }
 
-    addToMeals(event) {
-      const mealContent = event.target.dataset.mealContent;
 
-      // Aquí puedes enviar mealContent al backend para guardarlo en tu base de datos
-      // o hacer lo que sea necesario para agregar la receta a la vista de Meals.
-      console.log("Receta seleccionada:", mealContent);
-    }
 
-    saveMeal(){
-      const meal = this.mealTarget.innerText
-
+    saveMeal(event){
+      const meal = event.currentTarget.innerText
+      const calories = parseInt(meal.match(/(\d{1,}) calories/)[1], 10)
+      const grams = parseInt(meal.match(/(\d+)g/)[1], 10)
+      // const view_recipe = meal.match(/Preparation:(.*)/)
+      console.log(view_recipe)
       fetch("/meals", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "X-CSRF-Token": document.querySelector('[name="csrf-token"]').content
         },
-        body: JSON.stringify({meal: meal})
+        body: JSON.stringify({meal: {name: meal, calories: calories, portion: grams}})
       })
       .then(response => response.json())
       .then((data) => {
         console.log(data)
       })
     }
+
+    // saveRecipe(event){
+    //   const meal = event.currentTarget.innerText
+    //   const view_recipe = meal.match(/Preparation:(.*)/)
+    //   fetch("/meals/recipe", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       "X-CSRF-Token": document.querySelector('[name="csrf-token"]').content
+    //     },
+    //     body: JSON.stringify({meal: {view_recipe: view_recipe}})
+    //   })
+    //   .then(response => response.json())
+    //   .then((data) => {
+    //     console.log(data)
+    //   })
+    // }
   }
+
+
+  // Add the recipe adn let the recipe start with the word preparation.
