@@ -13,6 +13,7 @@
 
 .container {
   background-color: white;
+  max-width: 100%;
 }
 
 .btn-gray {
@@ -20,4 +21,12 @@
   color: white;
   border-radius: 10px;
   border: none;
+}
+
+// .h2 {
+//   font-style: "Helvetica";
+// }
+
+.col-4 .img-fluid {
+  max-width: 45%;
 }

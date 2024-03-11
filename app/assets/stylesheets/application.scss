@@ -11,3 +11,23 @@
 @import "components/index";
 @import "pages/index";
 @import "meals/index";
+@import "pages/login";
+
+.footer {
+  background-color: black;
+  padding: 20px 0;
+  position: inherit;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  font-style: italic;
+}
