@@ -1,0 +1,56 @@
+@media (max-width: 768px) {
+  .container-1 {
+    width: 90%; /* Porcentaje del ancho de la ventana gráfica */
+  }
+}
+
+.container-1 {
+  background-color: white;
+  color: black;
+  border: 1px solid #f10909;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 80%;
+  max-width: 400px;
+  overflow-y: scroll; /* Agrega una barra de desplazamiento vertical si el contenido es demasiado largo */
+  max-height: 80vh; /* Limita la altura máxima del contenedor al 80% de la altura visible */
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-inputs {
+  margin-bottom: 20px;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
