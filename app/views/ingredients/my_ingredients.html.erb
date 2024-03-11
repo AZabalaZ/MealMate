@@ -1,13 +1,16 @@
 
 <div class="d-flex flex-wrap" data-controller="recipe-generator">
+  <div data-recipe-generator-target="meals" >
 
-  <div class="m-4 p-4 shadow bg-white" data-recipe-generator-target="meal" data-action="click->recipe-generator#saveMeal">
   </div>
+
   <% @my_ingredients.each do |ingredient| %>
   <div class="m-3 p-4 shadow bg-white" data-recipe-generator-target="ingredient" data-action="click->recipe-generator#select">
     <%= ingredient.name %>
+    <%= button_to "Eliminar", ingredient_path(ingredient), method: :delete, data: { confirm: "¿Estás seguro de que quieres eliminar este ingrediente?" }, class: "btn btn-danger" %>
   </div>
   <% end %>
+  <p data-recipe-generator-target="key" hidden><%= ENV["OPENAI_ACCESS_TOKEN"] %></p>
   </div>
 
   <%= link_to "Back", ingredients_path %>

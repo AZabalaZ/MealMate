@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     end
   end
   resources :recipes, only: [:index, :destroy]
-  resources :ingredients do
+  resources :ingredients, only: [:index, :destroy] do
     collection do
       get 'search'
     end

@@ -1,6 +1,6 @@
 class UserInformationController < ApplicationController
 
-  before_action :authenticate_user! # Asegura que el usuario esté autenticado antes de acceder a la información
+  before_action :authenticate_user!
 
   def show
     @user = current_user

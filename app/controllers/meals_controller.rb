@@ -12,6 +12,17 @@ class MealsController < ApplicationController
     @favorite_meals = current_user.recipes.select(&:favorite).map(&:meal)
   end
 
+  def create
+    @meal = Meal.new(meal_params)
+    if @meal.save
+      render json: @meal, status: :created
+    else
+      render json: @meal.errors, status: :unprocessable_entity
+    end
+  end
+
+
+
   def add_to_my_recipes
     meal = Meal.find(params[:id])
     Recipe.create(meal: meal, user: current_user, favorite: false)
@@ -31,5 +42,11 @@ class MealsController < ApplicationController
     recipe = Recipe.find_by(meal: meal)
     recipe.destroy
     redirect_to meals_path, notice: "Recipe removed from favorites"
+  end
+
+private
+
+  def meal_params
+    params.require(:meal).permit(:name, :description, :calories, :image_url, :calories_sum, :portion, :preparation_time)
   end
 end
