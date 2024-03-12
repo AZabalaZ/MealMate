@@ -21,7 +21,16 @@ class MealsController < ApplicationController
     end
   end
 
+  def destroy
+    @meal = Meal.find(params[:id])
+    @meal.destroy
+    redirect_to meals_path, notice: "¡La comida ha sido eliminada correctamente!"
+  end
 
+  def view_recipe
+    @meal = Meal.find(params[:id])
+    @recipe_steps = @meal.description
+  end
 
   def add_to_my_recipes
     meal = Meal.find(params[:id])
