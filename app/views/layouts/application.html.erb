@@ -11,16 +11,17 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body><%= render "shared/navbar" %>
+  <body class="d-flex flex-column min-vh-100">
+    <div class="row flex-grow-1">
+      <div class="col">
+        <%= render "shared/navbar" %>
         <%= render "shared/flashes" %>
-
-    <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <footer class="footer">
-        <p class="text-center text-danger">MealMate</p>
-    </footer>
-
+        <%= yield %>
+        <p class="alert"><%= alert %></p>
+        <p class="notice"><%= notice %></p>
+      </div>
+    </div>
+    <%= render "shared/footer" %>
   </body>
+
 </html>

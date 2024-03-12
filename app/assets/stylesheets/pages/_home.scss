@@ -1,7 +1,11 @@
 // Specific CSS for your home-page
 .custom-card {
-  border: none;
+  border: 1px solid #ccc; /* Agrega un borde suave */
+  border-radius: 15px; /* Hace los bordes más redondos */
+  overflow: hidden; /* Evita que el contenido se salga del borde redondeado */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Agrega una sombra suave */
 }
+
 
 .img-fluid {
   border-radius: 5px;
@@ -29,4 +33,31 @@
 
 .col-4 .img-fluid {
   max-width: 45%;
+}
+
+.card {
+  transition: transform 0.3s ease;
+  border-radius: 15px;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.col-4 {
+  transition: transform 0.3s ease;
+  padding-top: 15px;
+}
+
+.col-4:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.card-text {
+  margin: revert;
+}
+
+.card-title {
+  margin: revert;
 }
