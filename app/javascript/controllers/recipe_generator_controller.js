@@ -26,20 +26,29 @@ export default class extends Controller {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${this.apyKey}`
       },
-      body: JSON.stringify({model: "gpt-3.5-turbo", "messages": [{"role": "user", "content": `Give me a 5 recipes name and calories for the following ingredients:${this.ingredients.join(", ")}. Specify the portion size in grams.`}],
+      body: JSON.stringify({model: "gpt-3.5-turbo", "messages": [{"role": "user", "content": `Give me a 5 recipes name and calories for the following ingredients:${this.ingredients.join(", ")}. Specify the portion size in grams. Add the recipe and let the recipe start with the word preparation. I need the name separated by a dash`}],
 
-      "temperature": 0.7})
+      "temperature": 0.7,
+      // "max_tokens": 150,
+      // "stop": ["Preparation:"]
+    })
       })
       .then(response => response.json())
       .then((data) => {
+
         const recipename = data["choices"][0]["message"]["content"]
-        const recipes = recipename.match(/1\. (.+)\n2\. (.+)\n3\. (.+)\n4\. (.+)\n5\. (.+)/).slice(1,6)
+        const recipes = recipename.split(/\n\n(?=\d+\. )/)
+
         recipes.forEach((meal) => {
+          // const steps = meal.match(/Preparation:(.*)/)[1].trim()
+
           const mealcard = `<div class="m-4 p-4 shadow bg-white" data-recipe-generator-target="meal" data-action="click->recipe-generator#saveMeal">
           ${meal}</div>`
           this.mealsTarget.insertAdjacentHTML('beforeend', mealcard)
         })
-        // console.log(recipes)
+
+        console.log(recipes)
+
         // this.mealTarget.innerHTML = `<h3>${recipes}</h3>`
       })
     }
@@ -48,17 +57,18 @@ export default class extends Controller {
 
     saveMeal(event){
       const meal = event.currentTarget.innerText
+      const name = meal.match(/^\d+\. (.*?) -/)[1]
       const calories = parseInt(meal.match(/(\d{1,}) calories/)[1], 10)
       const grams = parseInt(meal.match(/(\d+)g/)[1], 10)
-      // const view_recipe = meal.match(/Preparation:(.*)/)
-      console.log(view_recipe)
+      const steps = meal.match(/Preparation:(.*)/)[1].trim()
+
       fetch("/meals", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "X-CSRF-Token": document.querySelector('[name="csrf-token"]').content
         },
-        body: JSON.stringify({meal: {name: meal, calories: calories, portion: grams}})
+        body: JSON.stringify({meal: {name: name, calories: calories, portion: grams, description: steps}})
       })
       .then(response => response.json())
       .then((data) => {

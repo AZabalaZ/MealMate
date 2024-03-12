@@ -1,0 +1,5 @@
+<h1><%= @meal.name %></h1>
+<p>Calorías: <%= @meal.calories %></p>
+<p>Preparación: </p>
+<%= @meal.description %>
+<%= simple_format(@recipe_description) %>
