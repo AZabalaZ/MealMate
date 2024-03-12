@@ -7,6 +7,7 @@
       <% @recipes.each do |recipe| %>
         <div class="recipe">
           <p>Comida: <%= recipe.meal.name %></p>
+          <p>Calories: <%= recipe.meal.calories %></p>
           <%= form_with(url: recipe_path(recipe), method: :delete, data: { confirm: "¿Estás seguro que deseas eliminar esta receta?" }) do |form| %>
             <%= form.submit "Eliminar" %>
           <% end %>
