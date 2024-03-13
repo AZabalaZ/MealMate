@@ -11,13 +11,13 @@
         <%= f.input :email,
                     required: false,
                     autofocus: true,
-                    input_html: {placeholder: "Email" } %>
+                    input_html: { placeholder: "Email" } %>
       </div>
 
       <div class="inputBx">
         <%= f.input :password,
                     required: false,
-                    input_html: {  placeholder: "Password" } %>
+                    input_html: { placeholder: "Password" } %>
       </div>
 
         <%= f.input :remember_me, as: :boolean, label_html: { class: "text-white" }, input_html: { class: 'remember-me-checkbox' } if devise_mapping.rememberable? %>
