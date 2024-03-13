@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     end
   end
   resources :recipes, only: [:index, :destroy, :create]
-  resources :ingredients, only: [:index, :destroy] do
+  resources :ingredients, only: [:index, :destroy, :create] do
     collection do
       get 'search'
     end

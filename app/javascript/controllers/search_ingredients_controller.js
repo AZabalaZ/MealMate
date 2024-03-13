@@ -4,7 +4,7 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = [ "form", "list", "input" ]
   connect() {
-
+    this.addedIngredients = []
   }
 
     update(){
@@ -43,5 +43,44 @@ export default class extends Controller {
         })
     }
     )
+    }
+
+    addIngredient(event) {
+      // Evitar que se manejen múltiples clics
+      if (event.target.classList.contains('clicked')) return;
+      event.target.classList.add('clicked');
+
+      const ingredientName = event.currentTarget.querySelector("h3").innerText;
+      const calories = event.currentTarget.querySelector("h2").innerText;
+
+      // Verificar si el ingrediente ya está en la lista
+      if (this.addedIngredients.includes(ingredientName)) {
+        alert("Este ingrediente ya ha sido agregado");
+        return;
+      }
+
+      // Agregar ingrediente a la lista
+      this.addedIngredients.push(ingredientName);
+
+      // Enviar solicitud POST para agregar el ingrediente
+      fetch("/ingredients", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+        },
+        body: JSON.stringify({ingredient: { name: ingredientName, calories: calories }})
+      })
+      .then(response => {
+        if (response.ok) {
+          // Redireccionar a la vista de "Mis ingredientes" después de agregar el ingrediente
+          window.location.href = "/my_ingredients";
+        } else {
+          // Si hay un error en la solicitud POST, manejarlo aquí
+        }
+      })
+      .catch(error => {
+        // Manejar errores de red aquí
+      });
     }
   }

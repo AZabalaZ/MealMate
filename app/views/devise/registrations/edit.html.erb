@@ -10,12 +10,11 @@
       <% end %>
 
       <%= f.input :age %>
-      <%= f.input :sex, as: :select, collection: ['Masculine', 'Femenine'] %>
+      <%= f.input :sex, as: :select, collection: ['Masculine', 'Femenine'], label: "Gender" %>
       <%= f.input :height %>
       <%= f.input :weight %>
 
-      <!-- Cambiando a barras desplegables -->
-      <%# <%= f.input :activity, as: :select, collection: User.activities.keys.map.with_index { |a, i| [a.humanize, i] } %>
+
       <%= f.input :goal, as: :select, collection: User.goals.keys.map.with_index { |g, i| [g.humanize, i] } %>
 
 
