@@ -8,7 +8,7 @@
           <% end %>
           <div class="card-body">
             <h5 class="card-title text-center"><%= meal.name %></h5>
-            <%= button_to meal_path(meal), method: :delete, data: { confirm: "¿Estás seguro que deseas eliminar esta comida?" }, class: "btn btn-danger btn-icon" do %>
+            <%= button_to meal_path(meal), method: :delete, data: { confirm: "¿Are you sure you want to delete this recipe?" }, class: "btn btn-danger btn-icon" do %>
   <i class="fa-solid fa-trash"></i>
 <% end %>
           </div>
@@ -23,7 +23,7 @@
               <% end %>
 
               <%= link_to view_recipe_meal_path(meal), class: "btn btn-ver-receta mx-1", style: "border-radius: 10px;" do %>
-                Ver receta
+                See recipe
               <% end %>
 
               <%= button_to add_to_favorites_meal_path(meal), method: :post, class: "btn btn-outline" do %>

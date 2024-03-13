@@ -1,5 +1,5 @@
 <div class="container">
-  <h1 style="text-align: center; margin: revert;">Mis Favoritos</h1>
+  <h1 style="text-align: center; margin: revert;">My Favorites</h1>
   <div class="row">
 
     <% @favorite_meals.each do |meal| %>
@@ -8,18 +8,22 @@
           <div class="row g-0">
 
             <div class="col-md-4">
-              <%# <%= image_tag meal.image_url, class: "img-fluid rounded-start", alt: meal.name %> %>
+              <% if meal.image_url.present? %>
+                <%= image_tag meal.image_url, class: "img-fluid rounded-start", alt: meal.name %>
+              <% else %>
+
+              <% end %>
             </div>
 
             <div class="col-md-8">
               <div class="card-body">
                 <h5 class="card-title"><%= link_to meal.name, meal_path(meal) %>
                 <%= button_to recipes_path, method: :post, params: { meal_id: meal.id }, class: "btn btn-success" do %>
-  Agregar a Mis Recipes
+  Add to My Recipes
 <% end %>
                 </h5>
                 <p class="card-text">Calories: <%= meal.calories %></p>
-                <p class="card-text">Preparation Time: <%= meal.preparation_time %> minutes</p>
+
               </div>
             </div>
 

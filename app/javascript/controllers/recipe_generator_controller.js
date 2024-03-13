@@ -40,7 +40,6 @@ export default class extends Controller {
         const recipes = recipename.split(/\n\n(?=\d+\. )/)
 
         recipes.forEach((meal) => {
-          // const steps = meal.match(/Preparation:(.*)/)[1].trim()
 
           const mealcard = `<div class="m-4 p-4 shadow bg-white" data-recipe-generator-target="meal" data-action="click->recipe-generator#saveMeal">
           ${meal}</div>`
@@ -49,7 +48,6 @@ export default class extends Controller {
 
         console.log(recipes)
 
-        // this.mealTarget.innerHTML = `<h3>${recipes}</h3>`
       })
     }
 
@@ -76,23 +74,4 @@ export default class extends Controller {
       })
     }
 
-    // saveRecipe(event){
-    //   const meal = event.currentTarget.innerText
-    //   const view_recipe = meal.match(/Preparation:(.*)/)
-    //   fetch("/meals/recipe", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       "X-CSRF-Token": document.querySelector('[name="csrf-token"]').content
-    //     },
-    //     body: JSON.stringify({meal: {view_recipe: view_recipe}})
-    //   })
-    //   .then(response => response.json())
-    //   .then((data) => {
-    //     console.log(data)
-    //   })
-    // }
   }
-
-
-  // Add the recipe adn let the recipe start with the word preparation.

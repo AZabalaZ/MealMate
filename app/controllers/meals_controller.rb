@@ -24,7 +24,7 @@ class MealsController < ApplicationController
   def destroy
     @meal = Meal.find(params[:id])
     @meal.destroy
-    redirect_to meals_path, notice: "¡La comida ha sido eliminada correctamente!"
+    redirect_to meals_path
   end
 
   def view_recipe
@@ -50,7 +50,7 @@ class MealsController < ApplicationController
     # current_user.favorite_meals.delete(meal)
     recipe = Recipe.find_by(meal: meal)
     recipe.destroy
-    redirect_to meals_path, notice: "Recipe removed from favorites"
+    redirect_to favorites_path, notice: "Recipe removed from favorites"
   end
 
 private

@@ -7,4 +7,6 @@ class UserInformationController < ApplicationController
     @gasto_calorico = @user.gasto_calorico
     @requerimientos = @user.requerimientos
   end
+
+
 end

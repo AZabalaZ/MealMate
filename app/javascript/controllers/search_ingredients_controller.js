@@ -16,7 +16,7 @@ export default class extends Controller {
       .then(data =>{
       const results = data["hints"].slice(0,5)
       results.forEach(result => {
-        const link = `<a href=""><div class="d-flex p-4 bg-white shadow"><img src="${result["food"]["image"]}"><h3>${result["food"]["label"]}</h3><h2>${Math.round(result["food"]["nutrients"]["ENERC_KCAL"],2)}</h2></div></a>`
+        const link = `<a href="my_ingredients"><div class="d-flex p-4 bg-white shadow"><img src="${result["food"]["image"]}"><div class="p-5"><h3>${result["food"]["label"]}</h3><h2>${Math.round(result["food"]["nutrients"]["ENERC_KCAL"],2)}</h2><h4>${Math.round(result["food"]["nutrients"]["PROCNT"],2)}</h4></div></div></a>`
         this.listTarget.insertAdjacentHTML("beforeend", link)
       })
       const options = document.querySelectorAll("a")
@@ -25,6 +25,7 @@ export default class extends Controller {
             event.preventDefault()
             const name = event.currentTarget.querySelector("h3").innerText
             const calories = event.currentTarget.querySelector("h2").innerText
+            const proteins = event.currentTarget.querySelector("h4").innerText
 
             fetch("/ingredients", {
               method: "POST",
@@ -32,55 +33,17 @@ export default class extends Controller {
                 "Content-Type": "application/json",
                 'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
               },
-              body: JSON.stringify({ingredient: { name: name, calories: calories }})
+              body: JSON.stringify({ingredient: { name: name, calories: calories, proteins: proteins}})
             })
             .then(response => {
               if (response.ok) {
-                return response.json()
+               response.json()
+               window.location.href = "/my_ingredients";
               }
             })
           })
         })
     }
     )
-    }
-
-    addIngredient(event) {
-      // Evitar que se manejen múltiples clics
-      if (event.target.classList.contains('clicked')) return;
-      event.target.classList.add('clicked');
-
-      const ingredientName = event.currentTarget.querySelector("h3").innerText;
-      const calories = event.currentTarget.querySelector("h2").innerText;
-
-      // Verificar si el ingrediente ya está en la lista
-      if (this.addedIngredients.includes(ingredientName)) {
-        alert("Este ingrediente ya ha sido agregado");
-        return;
-      }
-
-      // Agregar ingrediente a la lista
-      this.addedIngredients.push(ingredientName);
-
-      // Enviar solicitud POST para agregar el ingrediente
-      fetch("/ingredients", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-        },
-        body: JSON.stringify({ingredient: { name: ingredientName, calories: calories }})
-      })
-      .then(response => {
-        if (response.ok) {
-          // Redireccionar a la vista de "Mis ingredientes" después de agregar el ingrediente
-          window.location.href = "/my_ingredients";
-        } else {
-          // Si hay un error en la solicitud POST, manejarlo aquí
-        }
-      })
-      .catch(error => {
-        // Manejar errores de red aquí
-      });
     }
   }
