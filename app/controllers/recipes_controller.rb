@@ -3,6 +3,7 @@ class RecipesController < ApplicationController
   def index
     @recipes = current_user.recipes.reject(&:favorite)
     @total_calories = @recipes.sum { |recipe| recipe.meal.calories.to_i }
+    @total_proteins = @recipes.sum { |recipe| recipe.meal.proteins.to_i }
   end
 
   def destroy
