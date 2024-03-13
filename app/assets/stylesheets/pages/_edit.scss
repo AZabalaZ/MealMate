@@ -1,0 +1,39 @@
+.container2 {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  // background-color: #5b5a5a;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.btn-primary {
+  background-color: #ff0000;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #511818;
+}
+
+.btn-primary:active {
+  background-color: #ae1515;
+}
+
+.back-icon {
+  margin-right: 5px; /* Puedes ajustar el valor según tu preferencia */
+}
