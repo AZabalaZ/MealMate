@@ -6,7 +6,7 @@ export default class extends Controller {
   ingredients = []
   apyKey = this.keyTarget.innerText
   connect() {
-    // console.log(this.keyTarget.innerText)
+
   }
 
   select(event){
@@ -26,7 +26,7 @@ export default class extends Controller {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${this.apyKey}`
       },
-      body: JSON.stringify({model: "gpt-3.5-turbo", "messages": [{"role": "user", "content": `Give me a 5 recipes name and calories for the following ingredients:${this.ingredients.join(", ")}. Specify the portion size in grams. Add the recipe and let the recipe start with the word preparation. I need the name separated by a dash`}],
+      body: JSON.stringify({model: "gpt-3.5-turbo", "messages": [{"role": "user", "content": `Give me a 5 recipes name, calories and proteins for the following ingredients:${this.ingredients.join(", ")}. Add the recipe and let the recipe start with the word preparation. I need the name separated by a dash and that the proteins are after the calories`}],
 
       "temperature": 0.7,
       // "max_tokens": 150,
@@ -40,14 +40,16 @@ export default class extends Controller {
         const recipes = recipename.split(/\n\n(?=\d+\. )/)
 
         recipes.forEach((meal) => {
+          // const steps = meal.match(/Preparation:(.*)/)[1].trim()
 
           const mealcard = `<div class="m-4 p-4 shadow bg-white" data-recipe-generator-target="meal" data-action="click->recipe-generator#saveMeal">
           ${meal}</div>`
           this.mealsTarget.insertAdjacentHTML('beforeend', mealcard)
         })
 
-        console.log(recipes)
 
+
+        // this.mealTarget.innerHTML = `<h3>${recipes}</h3>`
       })
     }
 
@@ -57,8 +59,9 @@ export default class extends Controller {
       const meal = event.currentTarget.innerText
       const name = meal.match(/^\d+\. (.*?) -/)[1]
       const calories = parseInt(meal.match(/(\d{1,}) calories/)[1], 10)
-      const grams = parseInt(meal.match(/(\d+)g/)[1], 10)
+      // const grams = parseInt(meal.match(/(\d+)g/)[1], 10)
       const steps = meal.match(/Preparation:(.*)/)[1].trim()
+      const proteins = parseInt(meal.match(/(\d{1,})g/)[1], 10)
 
       fetch("/meals", {
         method: "POST",
@@ -66,12 +69,11 @@ export default class extends Controller {
           "Content-Type": "application/json",
           "X-CSRF-Token": document.querySelector('[name="csrf-token"]').content
         },
-        body: JSON.stringify({meal: {name: name, calories: calories, portion: grams, description: steps}})
+        body: JSON.stringify({meal: {name: name, calories: calories, description: steps, proteins: proteins}})
       })
       .then(response => response.json())
       .then((data) => {
         console.log(data)
       })
     }
-
   }

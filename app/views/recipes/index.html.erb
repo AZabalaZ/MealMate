@@ -8,6 +8,7 @@
         <div class="recipe">
           <p>Meal: <%= recipe.meal.name %></p>
           <p>Calories: <%= recipe.meal.calories %></p>
+          <p>Proteins: <%= recipe.meal.proteins %></p>
           <%= form_with(url: recipe_path(recipe), method: :delete, data: { confirm: "¿Are you sure you want to delete this recipe?" }) do |form| %>
             <%= form.submit "Delete" %>
           <% end %>
@@ -24,3 +25,4 @@
 </div>
 
 <p>Total Calories: <%= @total_calories %></p>
+<p>Total Proteins: <%= @total_proteins %></p>
