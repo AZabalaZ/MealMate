@@ -1,0 +1,100 @@
+/* Estilos generales */
+
+.container3 {
+  margin-top: 20px; /* Espacio superior */
+  background-color: #5d5c5c;
+}
+
+/* Estilos para las tarjetas de las comidas favoritas y las recetas */
+.favcard {
+  // background-color: white; /* Color de fondo */
+  // border-radius: 10px; /* Bordes redondeados */
+  // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  margin: 30px auto;
+  width: 100%;
+  height: 300px;
+  border-radius: 40px;
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  cursor: pointer;
+  transition: 0.4s;
+  // background: linear-gradient(135deg, white, rgb(178, 30, 30));
+}
+
+.favcard:hover {
+  transform: scale(0.9, 0.9);
+  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25),
+    -5px -5px 30px 15px rgba(0,0,0,0.22);
+}
+
+.favcard img {
+  border-top-left-radius: 10px; /* Redondea la esquina superior izquierda de la imagen */
+  border-bottom-left-radius: 10px; /* Redondea la esquina inferior izquierda de la imagen */
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-footer {
+  border-top: 1px solid #e9ecef; /* Borde superior gris claro */
+  padding: 10px 20px;
+}
+
+/* Botón de eliminar con icono */
+.deletebotton {
+  // background-color: #f10909; /* Rojo */
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+}
+
+.deletebotton:hover {
+  background-color: #dc3545; /* Rojo más oscuro al pasar el mouse */
+}
+
+/* Estilos para la lista de recetas */
+.recipe {
+  border-bottom: 1px solid #e9ecef; /* Borde inferior gris claro */
+  padding: 10px;
+}
+
+.recipe p {
+  font-size: 18px; /* Tamaño de la fuente */
+  text-align: center; /* Centrar el texto */
+  margin-bottom: 10px; /* Margen inferior */
+}
+
+/* Estilo para el total de calorías y proteínas */
+.total-info {
+  margin-top: 20px;
+}
+
+/* Estilo para el formulario de tiempo */
+#time {
+  width: 100px;
+}
+
+.delete-recipe {
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.delete-recipe:hover {
+  background-color: #333;
+}
+
+/* Estilo por defecto */
+.card-title a {
+  color: black; /* Color del texto negro */
+  text-decoration: none; /* Quita la subrayado por defecto */
+}
+
+/* Estilo al pasar el mouse */
+.card-title a:hover {
+  text-decoration: underline; /* Añade una línea al pasar el mouse */
+}

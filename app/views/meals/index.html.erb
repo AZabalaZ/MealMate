@@ -2,15 +2,15 @@
   <div class="row">
     <% @meals.each do |meal| %>
       <div class="col-md-4">
-        <div class="card mb-4">
+        <div class="mealcard card mb-4">
           <% if meal.image_url.present? %>
             <%= image_tag meal.image_url, class: "card-img-top img-fluid", alt: meal.name, id: "meal-image-#{meal.id}" %>
           <% end %>
           <div class="card-body">
             <h5 class="card-title text-center"><%= meal.name %></h5>
-            <%= button_to meal_path(meal), method: :delete, data: { confirm: "¿Are you sure you want to delete this recipe?" }, class: "btn btn-danger btn-icon" do %>
-  <i class="fa-solid fa-trash"></i>
-<% end %>
+            <%= button_to meal_path(meal), method: :delete, data: { confirm: "¿Are you sure you want to delete this recipe?" }, class: "btn btn-icon btn-delete" do %>
+              <i class="fa-solid fa-trash"></i>
+            <% end %>
           </div>
 
           <div class="card-footer text-center">
@@ -60,3 +60,24 @@
     });
   });
 </script>
+
+<%# <script>
+ document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.mealcard').forEach(function(mealcard) {
+    card.addEventListener('click', function() {
+      document.querySelectorAll('.mealcard').forEach(function(otherCard) {
+        if (otherCard !== mealcard) {
+          otherCard.classList.add('blur');
+        }
+      });
+    });
+
+    card.querySelectorAll('.btn').forEach(function(button) {
+      button.addEventListener('click', function(event) {
+        event.stopPropagation(); // Detiene la propagación del evento
+      });
+    });
+  });
+});
+
+</script> %>
