@@ -16,7 +16,7 @@ export default class extends Controller {
       .then(data =>{
       const results = data["hints"].slice(0,5)
       results.forEach(result => {
-        const link = `<a href="my_ingredients"><div class="allcard"><img src="${result["food"]["image"]}" class="img"><div class="card p-5"><h3>${result["food"]["label"]}</h3><h2>Calories: ${Math.round(result["food"]["nutrients"]["ENERC_KCAL"],2)}</h2><h4>Proteins: ${Math.round(result["food"]["nutrients"]["PROCNT"],2)}</h4></div></div></a>`
+        const link = `<a href="my_ingredients"><div class="allcard"><img src="${result["food"]["image"]}" class="img"><div class="carddd p-5"><h3>${result["food"]["label"]}</h3><h2>Calories: ${Math.round(result["food"]["nutrients"]["ENERC_KCAL"],2)}</h2><h4>Proteins: ${Math.round(result["food"]["nutrients"]["PROCNT"],2)}</h4></div></div></a>`
         this.listTarget.insertAdjacentHTML("beforeend", link)
       })
       const options = document.querySelectorAll("a")
