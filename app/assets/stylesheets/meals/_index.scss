@@ -9,14 +9,14 @@
 .card {
   border: none;
   height: 100%;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.1);
 }
 
 .mealcard {
   background: linear-gradient(to bottom, #ffffff, #f10909);
   border-radius: 20px;
   transition: filter 200ms linear, transform 200ms linear;
-  margin-top: 20px; /* Espacio entre el navbar y las cartas */
+  // margin-top: 20px; /* Espacio entre el navbar y las cartas */
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-column-gap: var(--spacing-l);
@@ -25,10 +25,18 @@
   width: 100%;
 }
 
-.mealcard .btn-delete {
+.mealcard .btn-delete-meal {
   position: absolute;
   bottom: 10px; /* Ajusta la distancia desde la parte superior */
   right: 10px; /* Ajusta la distancia desde la derecha */
+}
+
+.btn-delete-meal:hover {
+  color: #ffffff;
+}
+
+.btn-heart:hover {
+  color: #ffffff;
 }
 
 .card-img-top {
