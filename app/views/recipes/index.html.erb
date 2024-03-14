@@ -1,21 +1,19 @@
-<div class="container3">
-  <h1>My recipes</h1>
+<div class="container3 mb-3 pb-4">
+  <h1 class="text-center">My recipes</h1>
+  <div class="row m-2">
   <p>Total Calories: <%= @total_calories %></p>
   <p>Total Proteins: <%= @total_proteins %></p>
-  <div class="d-inline">
-    <div class="container3">
-      <h2>Recipe</h2>
       <% @recipes.each do |recipe| %>
-        <div class="favcard recipe p-5 text-center">
-          <p>Meal: <%= link_to recipe.meal.name, view_recipe_meal_path(recipe.meal) %></p>
-          <p>Calories: <%= recipe.meal.calories %></p>
-          <p>Proteins: <%= recipe.meal.proteins %></p>
-          <%= form_with(url: recipe_path(recipe), method: :delete, data: { confirm: "¿Are you sure you want to delete this recipe?" }) do |form| %>
-            <%= form.submit "Delete", class: "delete-recipe" %>
-          <% end %>
+        <div class="col-md-4">
+          <div class="favcard recipe p-5 text-center bg-white">
+            <p>Meal: <%= link_to recipe.meal.name, view_recipe_meal_path(recipe.meal) %></p>
+            <p>Calories: <%= recipe.meal.calories %></p>
+            <p>Proteins: <%= recipe.meal.proteins %></p>
+            <%= form_with(url: recipe_path(recipe), method: :delete, data: { confirm: "¿Are you sure you want to delete this recipe?" }) do |form| %>
+              <%= form.submit "Delete", class: "delete-recipe" %>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>
-
-  </div>
 </div>

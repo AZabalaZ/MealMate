@@ -1,19 +1,11 @@
 <div class="container3">
   <h1 style="text-align: center; margin: revert;">My Favorites</h1>
-  <div class="row d-inline">
+  <div class="row m-2">
 
     <% @favorite_meals.each do |meal| %>
-      <div class="col-md-12">
+      <div class="col-md-4">
         <div class="favcard card mb-3">
           <div class="row g-0">
-
-            <div class="col-md-4">
-              <% if meal.image_url.present? %>
-                <%= image_tag meal.image_url, class: "img-fluid rounded-start", alt: meal.name %>
-              <% else %>
-
-              <% end %>
-            </div>
 
             <div class="col-md-8">
               <div class="card-body">
@@ -28,7 +20,7 @@
             </div>
 
             <div class="card-footer text-end">
-              <%= button_to remove_from_favorites_meal_path(meal), method: :delete, class: "deletebotton btn btn-delete" do %>
+              <%= button_to remove_from_favorites_meal_path(meal), method: :delete, class: "deletebotton btn" do %>
                 <i class="fa-solid fa-trash"></i>
               <% end %>
             </div>

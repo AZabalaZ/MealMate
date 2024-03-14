@@ -11,7 +11,7 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <body class="d-flex flex-column min-vh-100">
+  <body class="d-flex flex-column min-vh-100" style="padding-bottom: 0;">
     <div class="row flex-grow-1 <%= 'login_body' unless current_user %>">
       <div class="col">
         <%= render "shared/navbar" %>
