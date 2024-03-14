@@ -12,7 +12,7 @@ export default class extends Controller {
   select(event){
     event.currentTarget.classList.toggle('border')
     event.currentTarget.classList.toggle('border-3')
-    event.currentTarget.classList.toggle('border-primary')
+    event.currentTarget.classList.toggle('border-danger')
     this.ingredients.push(event.currentTarget.innerText)
     if(this.ingredients.length>2){
       this.createMeal(this.ingredients)
@@ -42,7 +42,7 @@ export default class extends Controller {
         recipes.forEach((meal) => {
           // const steps = meal.match(/Preparation:(.*)/)[1].trim()
 
-          const mealcard = `<div class="m-4 p-4 shadow bg-white" data-recipe-generator-target="meal" data-action="click->recipe-generator#saveMeal">
+          const mealcard = `<div class="my_meal_card" data-recipe-generator-target="meal" data-action="click->recipe-generator#saveMeal">
           ${meal}</div>`
           this.mealsTarget.insertAdjacentHTML('beforeend', mealcard)
         })
