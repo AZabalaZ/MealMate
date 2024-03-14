@@ -1,0 +1,47 @@
+.container4 {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin: 20px auto;
+  max-width: 600px;
+
+  h1 {
+    font-size: 2rem; /* Tamaño de letra grande para el título */
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  p {
+    font-size: 1.2rem; /* Tamaño de letra más grande para los párrafos */
+    margin-bottom: 5px;
+  }
+
+  h2 {
+    font-size: 2rem; /* Tamaño de letra grande para el título */
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+}
+
+.my-information-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  margin: 20px auto;
+  max-width: 600px;
+
+  h2 {
+    font-size: 2rem; /* Tamaño de letra grande para el título */
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-style: italic;
+  }
+
+  p {
+    font-size: 1.2rem; /* Tamaño de letra más grande para los párrafos */
+    margin-bottom: 5px;
+  }
+}

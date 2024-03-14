@@ -1,16 +1,14 @@
-
-  <div data-controller="search-ingredients">
+<div data-controller="search-ingredients">
   <%= link_to "My ingredients", my_ingredients_path, class:"my_ingredients" %>
   <div class="search">
     <%= form_with(url: ingredients_path, method: :get, html: {data:{search_ingredients_target:"form"}}) do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search ingredients...", class: "search_input",
-    data: {
-      search_ingredients_target:"input",
-      action: "keyup->search-ingredients#update"
-      } %>
-    <%# <%= submit_tag "Search", class: "search_icon"%>
+      <%= text_field_tag :search, params[:search], placeholder: "Search ingredients...", class: "search_input",
+      data: {
+        search_ingredients_target:"input",
+        action: "keyup->search-ingredients#update"
+        } %>
+      <%# <%= submit_tag "Search", class: "search_icon"%>
     <% end %>
-</div>
-    <%= render "list", ingredients: @ingredients %>
-
   </div>
+    <%= render "list", ingredients: @ingredients %>
+</div>

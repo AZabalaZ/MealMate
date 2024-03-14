@@ -2,7 +2,7 @@
   <h2>My information</h2>
 
   <div class="information-details">
-    <p>Gasto Calórico: <%= @gasto_calorico.round %>kcal</p>
+    <p>Caloric Expenditure: <%= @gasto_calorico.round %>kcal</p>
     <p>Requirements:</p>
     <ul>
       <li>Little Activity (1-3 days): <%= @requerimientos[:poca_actividad].round %>kcal</li>
@@ -11,5 +11,5 @@
     </ul>
   </div>
 
-  <%= link_to "Back", :back, class: "btn-back" %>
+  <%= link_to "<i class='fa-solid fa-left-long back-icon'></i> Back".html_safe, :back, class: "btn btn-secondary rounded-pill shadow" %>
 </div>
