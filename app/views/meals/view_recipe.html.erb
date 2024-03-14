@@ -1,5 +1,7 @@
-<h1><%= @meal.name %></h1>
-<p>Calorías: <%= @meal.calories %></p>
-<p>Preparación: </p>
-<%= @meal.description %>
-<%= simple_format(@recipe_description) %>
+<div class="container4">
+  <h1><%= @meal.name %></h1>
+  <p>Calories: <%= @meal.calories %></p>
+  <p>Preparation: </p>
+  <%= @meal.description %>
+  <%= simple_format(@recipe_description) %>
+</div>
