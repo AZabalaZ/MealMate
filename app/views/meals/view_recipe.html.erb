@@ -1,9 +1,14 @@
-<div class="container4">
-  <h1><%= @meal.name %></h1>
-  <p>Calories: <%= @meal.calories %></p>
-  <p>Preparation: </p>
-  <%= @meal.description %>
-  <%= simple_format(@recipe_description) %>
 
-  <%# <%= link_to "<i class='fa-solid fa-left-long back-icon'></i> Back".html_safe, root_path, class: "btn btn-secondary rounded-pill shadow", style: "display: inline-flex; align-items: center;" %>
+<div class="menu-container">
+  <div class="menu-card">
+    <div class="menu-header">
+      <h1><%= @meal.name %></h1>
+      <p>Calories: <%= @meal.calories %></p>
+    </div>
+    <div class="menu-body">
+      <p class="preparation-label">Preparation:</p>
+      <p class="description"><%= @meal.description %></p>
+      <p class="recipe-description"><%= simple_format(@recipe_description) %></p>
+    </div>
+  </div>
 </div>
