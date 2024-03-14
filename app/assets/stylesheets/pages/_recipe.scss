@@ -1,28 +1,61 @@
-.container4 {
-  background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  margin: 20px auto;
+.menu-container {
   max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-  h1 {
-    font-size: 2rem; /* Tamaño de letra grande para el título */
-    margin-bottom: 10px;
-    font-weight: bold;
-    font-style: italic;
-  }
+.menu-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+}
 
-  p {
-    font-size: 1.2rem; /* Tamaño de letra más grande para los párrafos */
-    margin-bottom: 5px;
-  }
+.menu-card:hover {
+  transform: scale(1.02);
+}
 
-  h2 {
-    font-size: 2rem; /* Tamaño de letra grande para el título */
-    margin-bottom: 10px;
-    font-weight: bold;
-  }
+.menu-header {
+  background-color: #dc3545;
+  padding: 20px;
+}
+
+.menu-header h1 {
+  color: #fff;
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.menu-header p {
+  color: #fff;
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.menu-body {
+  padding: 20px;
+}
+
+.preparation-label {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.description, .recipe-description {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.menu-card:hover .description, .menu-card:hover .recipe-description {
+  opacity: 1;
 }
 
 .my-information-container {
