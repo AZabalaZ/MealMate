@@ -59,6 +59,7 @@
 
 .navbar-lewagon .navbar-nav .nav-link:hover {
   color: #f10909;
+  font-weight: bold;
   text-decoration: none; /* Quita el subrayado */
   transform: scale(1.1); /* Aumenta el tamaño al pasar el mouse */
 }
@@ -67,16 +68,24 @@
   color: black;
 }
 
-.navbar-lewagon .navbar-nav .dropdown-menu .dropdown-item:hover {
-  color: #f10909; /* Cambiar color al hacer hover */
-  background-color: #000000; /* Cambiar color de fondo al hacer hover */
-}
-
-.navbar-lewagon .dropdown-menu .dropdown-item {
-  font-size: 1rem; /* Tamaño de fuente normal */
+.navbar-lewagon .navbar-nav .dropdown-menu .dropdown-item {
+  font-size: 1rem;
   font-weight: 500;
+  padding: 0.75rem 1rem; /* Agregar espaciado alrededor del texto */
+  transition: all 0.3s ease; /* Aplicar transición a todas las propiedades */
 }
 
-.navbar-lewagon .dropdown-menu .dropdown-item:hover {
-  font-size: 1.2rem; /* Tamaño de fuente al pasar el mouse */
+.navbar-lewagon .navbar-nav .dropdown-menu .dropdown-item:hover {
+  color: #fff; /* Cambiar el color del texto al hacer hover */
+  background-color: #333; /* Cambiar el color de fondo al hacer hover */
+  font-size: 1.1rem; /* Aumentar ligeramente el tamaño de la fuente al hacer hover */
+}
+
+.nav-item.dropdown .dropdown-menu {
+  opacity: 0; /* Inicialmente, el dropdown estará invisible */
+  transition: opacity 0.3s ease; /* Agregar transición para la opacidad */
+}
+
+.nav-item.dropdown .dropdown-menu.show {
+  opacity: 1; /* Cuando el dropdown está abierto, será completamente visible */
 }

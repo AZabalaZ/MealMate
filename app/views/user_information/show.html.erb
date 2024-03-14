@@ -1,5 +1,8 @@
-<div class="my-information-container">
-  <h2>My information</h2>
+<div class="menu-container">
+<div class="menu-card">
+  <div class="menu-header">
+    <h1>My information</h1>
+  </div>
 
   <div class="information-details">
     <p>Caloric Expenditure: <%= @gasto_calorico.round %>kcal</p>
@@ -9,7 +12,9 @@
       <li>Moderate Activity (3-5 days): <%= @requerimientos[:actividad_moderada].round %>kcal</li>
       <li>Intense Activity (6-7 days): <%= @requerimientos[:actividad_intensa].round %>kcal</li>
     </ul>
-  </div>
+
 
   <%= link_to "<i class='fa-solid fa-left-long back-icon'></i> Back".html_safe, :back, class: "btn btn-secondary rounded-pill shadow" %>
+</div>
+</div>
 </div>
