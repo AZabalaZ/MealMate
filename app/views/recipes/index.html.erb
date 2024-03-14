@@ -1,5 +1,7 @@
 <div class="container3">
   <h1>My recipes</h1>
+  <p>Total Calories: <%= @total_calories %></p>
+  <p>Total Proteins: <%= @total_proteins %></p>
   <div class="d-inline">
     <div class="container3">
       <h2>Recipe</h2>
@@ -14,14 +16,6 @@
         </div>
       <% end %>
     </div>
-    <div class="container3">
-      <h2>Time</h2>
-       <form action="#">
-        <input type="text" id="time" name="time">
-      </form>
-    </div>
+
   </div>
 </div>
-
-<p>Total Calories: <%= @total_calories %></p>
-<p>Total Proteins: <%= @total_proteins %></p>

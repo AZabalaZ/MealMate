@@ -15,10 +15,10 @@ $inner-shadow: inset .1rem .1rem .2rem var(--greyLight-2),
 inset -.2rem -.2rem .5rem var(--white);
 
 .search {
-  grid-column: 3 / 4;
-  grid-row: 2 / 3;
-  position: relative;
-  display: flex;
+  // grid-column: 3 / 4;
+  // grid-row: 2 / 3;
+  // position: relative;
+  // display: flex;
   align-items: center;
   justify-content: center;
   padding-top: 30px;
@@ -50,25 +50,25 @@ inset -.2rem -.2rem .5rem var(--white);
   }
 }
 
-.list{
-  grid-column: 3 / 4;
-  grid-row: 3 / 4;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 30px;
-  padding-bottom: 30px;
-  padding-left: 30px;
-  padding-right: 30px;
-  background-color: var(--greyLight-1);
-  border-radius: 1rem;
-  box-shadow: $shadow;
-  transition: box-shadow 0.9s;
-  &:hover {
-    box-shadow: $inner-shadow;
-  }
-}
+// .list{
+//   grid-column: 3 / 4;
+//   grid-row: 3 / 4;
+//   position: relative;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   padding-top: 30px;
+//   padding-bottom: 30px;
+//   padding-left: 30px;
+//   padding-right: 30px;
+//   background-color: var(--greyLight-1);
+//   border-radius: 1rem;
+//   box-shadow: $shadow;
+//   transition: box-shadow 0.9s;
+//   &:hover {
+//     box-shadow: $inner-shadow;
+//   }
+// }
 
 .allcard {
   display: flex;
@@ -81,10 +81,7 @@ inset -.2rem -.2rem .5rem var(--white);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
 
-  &:hover {
-    transform: translateY(-5px); // Efecto de levantamiento al pasar el ratón
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  }
+
 
   .img {
     width: 200px; // Ancho de la imagen, ajusta según tus necesidades
@@ -113,13 +110,21 @@ inset -.2rem -.2rem .5rem var(--white);
     }
   }
 }
+.allcard:hover {
+  transform: scale(1.01); // Efecto de levantamiento al pasar el ratón
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
 
 a {
   text-decoration: none;
 }
+.card:hover {
+transform: translateY(0px);
+}
 
 .my_ingredients {
   padding: 10px 20px;
+  margin: 20px;
   background-color: #f0f0f0;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -152,7 +157,7 @@ a {
   font-family: Arial, sans-serif;
 
   /* Tamaño de la carta */
-  width: 250px; /* Ancho */
+  width: 240px; /* Ancho */
   height: 100px; /* Alto */
 }
 
@@ -168,9 +173,11 @@ a {
   color: #fff; /* Color del texto */
   border: none; /* Sin borde */
   border-radius: 5px; /* Bordes redondeados */
-  padding: 8px 16px; /* Espaciado interno */
+  padding: 8px 9px; /* Espaciado interno */
   cursor: pointer; /* Cursor al pasar el ratón */
   transition: background-color 0.3s ease; /* Transición de color de fondo */
+  font-size: 12px;
+  font-weight: bold;
 
   &:hover {
     background-color: #c82333; /* Cambio de color al pasar el ratón */
@@ -190,9 +197,7 @@ a {
   color: #212529;
   font-family: Arial, sans-serif;
 
-  /* Tamaño de la carta */
-  width: 500px; /* Ancho */
-  height: 200px; /* Alto */
+
 }
 
 .my_meal_card:hover {
