@@ -1,10 +1,10 @@
-<div class="container">
+<div class="container3">
   <h1 style="text-align: center; margin: revert;">My Favorites</h1>
-  <div class="row">
+  <div class="row d-inline">
 
     <% @favorite_meals.each do |meal| %>
       <div class="col-md-12">
-        <div class="card mb-3">
+        <div class="favcard card mb-3">
           <div class="row g-0">
 
             <div class="col-md-4">
@@ -17,18 +17,18 @@
 
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title"><%= link_to meal.name, meal_path(meal) %>
-                <%= button_to recipes_path, method: :post, params: { meal_id: meal.id }, class: "btn btn-success" do %>
-  Add to My Recipes
-<% end %>
+                <h5 class="card-title"><%= link_to meal.name, view_recipe_meal_path(meal) %>
+                <%= button_to recipes_path, method: :post, params: { meal_id: meal.id }, class: "btn delete-recipe mt-4" do %>
+                  Add to My Recipes
+                <% end %>
                 </h5>
-                <p class="card-text">Calories: <%= meal.calories %></p>
+                <p class="card-text fs-4">Calories: <%= meal.calories %></p>
 
               </div>
             </div>
 
             <div class="card-footer text-end">
-              <%= button_to remove_from_favorites_meal_path(meal), method: :delete, class: "btn btn-delete" do %>
+              <%= button_to remove_from_favorites_meal_path(meal), method: :delete, class: "deletebotton btn btn-delete" do %>
                 <i class="fa-solid fa-trash"></i>
               <% end %>
             </div>
