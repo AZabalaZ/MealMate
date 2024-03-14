@@ -42,7 +42,7 @@ export default class extends Controller {
         recipes.forEach((meal) => {
           // const steps = meal.match(/Preparation:(.*)/)[1].trim()
 
-          const mealcard = `<div class="my_meal_card" data-recipe-generator-target="meal" data-action="click->recipe-generator#saveMeal">
+          const mealcard = `<div class="my_meal_card" style="width: 16%;" data-recipe-generator-target="meal" data-action="click->recipe-generator#saveMeal">
           ${meal}</div>`
           this.mealsTarget.insertAdjacentHTML('beforeend', mealcard)
         })
@@ -56,6 +56,9 @@ export default class extends Controller {
 
 
     saveMeal(event){
+      event.currentTarget.classList.toggle('border')
+      event.currentTarget.classList.toggle('border-3')
+      event.currentTarget.classList.toggle('border-danger')
       const meal = event.currentTarget.innerText
       const name = meal.match(/^\d+\. (.*?) -/)[1]
       const calories = parseInt(meal.match(/(\d{1,}) calories/)[1], 10)
