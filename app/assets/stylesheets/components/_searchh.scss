@@ -1,0 +1,268 @@
+:root {
+  --primary-light: #8abdff;
+  --primary: #6d5dfc;
+  --primary-dark: #5b0eeb;
+
+  --white: #FFFFFF;
+  --greyLight-1: #E4EBF5;
+  --greyLight-2: #2b2b2b;
+  --greyLight-3: #000000;
+  --greyDark: #020202;
+}
+$shadow: .2rem .2rem .3rem var(--greyLight-2),
+-.2rem -.2rem .5rem var(--white);
+$inner-shadow: inset .1rem .1rem .2rem var(--greyLight-2),
+inset -.2rem -.2rem .5rem var(--white);
+
+.search {
+  grid-column: 3 / 4;
+  grid-row: 2 / 3;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30px;
+
+   .search_input {
+    width: 20.4rem;
+    height: 4rem;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.4rem;
+    padding-left: 3.8rem;
+    box-shadow: $inner-shadow;
+    background: none;
+    padding: 30px;
+    font-family: inherit;
+    color: var(--greyDark);
+    transition: box-shadow 0.9s;
+
+
+    &::placeholder { color: var(--greyLight-3); }
+    &:focus {
+      outline: none;
+      box-shadow: $shadow;
+      + .search_icon {
+        color: var(--primary);
+      }
+    }
+
+  }
+}
+
+.list{
+  grid-column: 3 / 4;
+  grid-row: 3 / 4;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: var(--greyLight-1);
+  border-radius: 1rem;
+  box-shadow: $shadow;
+  transition: box-shadow 0.9s;
+  &:hover {
+    box-shadow: $inner-shadow;
+  }
+}
+
+.allcard {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 20px;
+  margin-right: 10px; // Ajuste del margen derecho para acercar las tarjetas a la pantalla
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+
+  &:hover {
+    transform: translateY(-5px); // Efecto de levantamiento al pasar el ratón
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .img {
+    width: 200px; // Ancho de la imagen, ajusta según tus necesidades
+    height: auto;
+    display: block;
+  }
+
+  .card {
+    flex: 1;
+    padding: 20px;
+
+    h3 {
+      margin-top: 0; // Eliminar el margen superior de h3
+      margin-bottom: 10px;
+      font-size: 40px;
+    }
+
+    h2 {
+      margin-bottom: 5px;
+      font-size: 25px;
+    }
+
+    h4 {
+      margin-bottom: 0;
+      font-size: 25px;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.my_ingredients {
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.my_ingredients:hover {
+  background-color: #e0e0e0;
+  color: #111;
+}
+
+.my_ingredients:focus {
+  outline: none; /* Para quitar el borde al enfocar el botón */
+}
+
+.my_ingredients_card {
+  background-color: #f8f9fa; /* Color de fondo de la card */
+  border: 1px solid #ced4da; /* Borde de la card */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  margin: 20px; /* Margen exterior */
+  position: relative; /* Posición relativa para el posicionamiento del botón */
+  transition: transform 0.3s ease; /* Transición de movimiento */
+
+  /* Estilo del texto */
+  color: #212529;
+  font-family: Arial, sans-serif;
+
+  /* Tamaño de la carta */
+  width: 250px; /* Ancho */
+  height: 100px; /* Alto */
+}
+
+.my_ingredients_card:hover {
+  transform: scale(1.05); /* Aumenta el tamaño al pasar el ratón */
+}
+
+.btn-delete {
+  position: absolute; /* Posición absoluta para el botón */
+  bottom: 10px; /* Distancia desde la parte inferior */
+  right: 10px; /* Distancia desde la derecha */
+  background-color: #dc3545; /* Color de fondo */
+  color: #fff; /* Color del texto */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 8px 16px; /* Espaciado interno */
+  cursor: pointer; /* Cursor al pasar el ratón */
+  transition: background-color 0.3s ease; /* Transición de color de fondo */
+
+  &:hover {
+    background-color: #c82333; /* Cambio de color al pasar el ratón */
+  }
+}
+
+.my_meal_card {
+  background-color: #f8f9fa; /* Color de fondo de la card */
+  border: 1px solid #ced4da; /* Borde de la card */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  margin: 20px; /* Margen exterior */
+  position: relative; /* Posición relativa para el posicionamiento del botón */
+  transition: transform 0.3s ease; /* Transición de movimiento */
+
+  /* Estilo del texto */
+  color: #212529;
+  font-family: Arial, sans-serif;
+
+  /* Tamaño de la carta */
+  width: 500px; /* Ancho */
+  height: 200px; /* Alto */
+}
+
+.my_meal_card:hover {
+  transform: scale(1.05); /* Aumenta el tamaño al pasar el ratón */
+}
+
+.my-information-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border: 1px solid #ced4da;
+  border-radius: 10px;
+  opacity: 0; /* Inicialmente oculto */
+  animation: fadeIn 0.5s ease forwards; /* Animación de entrada */
+  animation-delay: 0.3s; /* Retraso de la animación */
+}
+
+.information-details {
+  margin-bottom: 20px;
+  opacity: 0; /* Inicialmente oculto */
+  animation: fadeIn 0.5s ease forwards; /* Animación de entrada */
+  animation-delay: 0.6s; /* Retraso de la animación */
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  opacity: 0; /* Inicialmente oculto */
+  animation: fadeIn 0.5s ease forwards; /* Animación de entrada */
+  animation-delay: 0.1s; /* Retraso de la animación */
+}
+
+p {
+  margin-bottom: 5px;
+}
+
+ul {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+li {
+  list-style: none;
+}
+
+.btn-back {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  opacity: 0; /* Inicialmente oculto */
+  animation: fadeIn 0.5s ease forwards; /* Animación de entrada */
+  animation-delay: 0.9s; /* Retraso de la animación */
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
