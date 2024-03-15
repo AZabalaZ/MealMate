@@ -1,4 +1,4 @@
-<%= link_to "<i class='fa-solid fa-left-long back-icon'></i> Back".html_safe, :back, class: "btn btn-secondary rounded-pill shadow" %>
+<%= link_to "<i class='fa-solid fa-left-long back-icon'></i> Back".html_safe, :back, class: "btn btn-secondary rounded-pill shadow m-4" %>
 <div class="d-flex flex-wrap" data-controller="recipe-generator">
   <div data-recipe-generator-target="meals" class="row d-flex flex-wrap justify-content-around m-4">
   </div>
@@ -6,7 +6,7 @@
     <% @my_ingredients.each do |ingredient| %>
     <div class="my_ingredients_card" data-recipe-generator-target="ingredient" data-action="click->recipe-generator#select">
       <%= ingredient.name %>
-      <%= button_to "Delete", ingredient_path(ingredient), method: :delete, data: { confirm: "¿Estás seguro de que quieres eliminar este ingrediente?" }, class: "btn-delete" %>
+      <%= button_to "<i class='fa-solid fa-trash'></i>".html_safe, ingredient_path(ingredient), method: :delete, data: { confirm: "¿Estás seguro de que quieres eliminar este ingrediente?" }, class: "btn-delete" %>
     </div>
     <% end %>
 </div>
