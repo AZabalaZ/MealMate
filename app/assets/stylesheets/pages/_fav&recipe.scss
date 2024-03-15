@@ -1,102 +1,120 @@
-/* Estilos generales */
-
 .container3 {
   padding-top: 20px; /* Espacio superior */
-  background-color: #9e9e9e;
-}
-
-/* Estilos para las tarjetas de las comidas favoritas y las recetas */
-.favcard {
-  // background-color: white; /* Color de fondo */
-  // border-radius: 10px; /* Bordes redondeados */
-  // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  margin: 30px auto;
-  width: 100%;
-  height: 360px;
-  border-radius: 40px;
-  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
-  cursor: pointer;
-  transition: 0.4s;
+  background-color: #ffffff; /* Color de fondo */
   padding-left: 20px;
-  // background: linear-gradient(135deg, white, rgb(178, 30, 30));
+  padding-right: 20px;
 }
 
+.favcard {
+  background-color: #f0efef; /* Color de fondo */
+  border-radius: 15px; /* Bordes redondeados */
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  margin: 10px auto;
+  width: 100%;
+  height: auto; /* Altura automática */
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden; /* Oculta el desbordamiento */
+}
+
+.favcard a{
+  color: #000000;
+}
+
+.favcard p{
+  font-weight: bold;
+}
+.favcard h5{
+  font-weight: bold;
+}
 .favcard:hover {
-  transform: scale(0.9, 0.9);
-  box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25),
-    -5px -5px 30px 15px rgba(0,0,0,0.22);
-}
-
-.favcard img {
-  border-top-left-radius: 10px; /* Redondea la esquina superior izquierda de la imagen */
-  border-bottom-left-radius: 10px; /* Redondea la esquina inferior izquierda de la imagen */
+  transform: translateY(-5px); /* Eleva la carta al pasar el mouse */
+  box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.2); /* Incrementa la sombra */
+  background-color: #f5f5f5;
 }
 
 .card-body {
   padding: 20px;
 }
 
-.card-footer {
-  border-top: 1px solid #e9ecef; /* Borde superior gris claro */
-  padding: 10px 20px;
-}
-
-/* Botón de eliminar con icono */
 .deletebotton {
-  // background-color: #f10909; /* Rojo */
-  color: rgb(0, 0, 0);
+  background-color: transparent; /* Botón sin color de fondo */
   border: none;
-  border-radius: 5px;
-  padding: 5px 10px;
+  padding: 10px; /* Eliminamos el relleno */
+  transition: color 0.3s ease; /* Transición del color del icono */
 }
 
 .deletebotton:hover {
-  // background-color: #dc3545; /* Rojo más oscuro al pasar el mouse */
-  color: rgb(246, 14, 14);
+  color: #dc3545; /* Rojo más oscuro al pasar el mouse */
 }
 
-/* Estilos para la lista de recetas */
+.deletebotton i {
+  color: #f10909; /* Color del icono rojo */
+}
+
+.card-title a {
+  color: #000000; /* Color del texto */
+  text-decoration: none; /* Quita la subrayado por defecto */
+}
+.card-title a:hover {
+  text-decoration: none; /* Quita la subrayado por defecto */
+}
+.card-title a:hover {
+  text-decoration: underline; /* Añade una línea al pasar el mouse */
+}
+
+
 .recipe {
-  border-bottom: 1px solid #e9ecef; /* Borde inferior gris claro */
-  padding: 10px;
+  background-color: #f0efef;
+  border-radius: 15px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.recipe:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .recipe p {
-  font-size: 18px; /* Tamaño de la fuente */
-  text-align: center; /* Centrar el texto */
-  margin-bottom: 10px; /* Margen inferior */
-}
-
-/* Estilo para el total de calorías y proteínas */
-.total-info {
-  margin-top: 20px;
-}
-
-/* Estilo para el formulario de tiempo */
-#time {
-  width: 100px;
+  margin-bottom: 10px;
+  font-weight: bold;
 }
 
 .delete-recipe {
-  background-color: black;
-  color: white;
+  background-color: #f10909;
+  color: #ffffff;
+  border: none;
   border-radius: 5px;
-  padding: 5px 10px;
-  box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
-  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+  padding: 8px 15px;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .delete-recipe:hover {
-  background-color: #333;
+  background-color: #dc3545;
+  transform: translateY(-2px);
 }
 
-/* Estilo por defecto */
-.card-title a {
-  color: black; /* Color del texto negro */
-  text-decoration: none; /* Quita la subrayado por defecto */
+.total-info {
+  margin-top: 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Estilo al pasar el mouse */
-.card-title a:hover {
-  text-decoration: underline; /* Añade una línea al pasar el mouse */
+.total-info:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.total-info p {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000000;
+  margin-bottom: 10px;
 }
