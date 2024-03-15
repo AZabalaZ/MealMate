@@ -2,7 +2,7 @@
   <div class="row">
     <% @meals.each do |meal| %>
       <div class="col-md-4">
-        <div class="mealcard card mb-4">
+        <div class="mealcard cardd mb-4">
           <% if meal.image_url.present? %>
             <%= image_tag meal.image_url, class: "card-img-top img-fluid", alt: meal.name, id: "meal-image-#{meal.id}" %>
           <% end %>
