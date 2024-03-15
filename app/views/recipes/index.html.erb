@@ -1,11 +1,13 @@
 <div class="container3 mb-3 pb-4">
   <h1 class="text-center">My recipes</h1>
   <div class="row m-2">
+  <div class="total-info">
   <p>Total Calories: <%= @total_calories %></p>
   <p>Total Proteins: <%= @total_proteins %></p>
+  </div>
       <% @recipes.each do |recipe| %>
         <div class="col-md-4">
-          <div class="favcard recipe p-5 text-center bg-white">
+          <div class="favcard recipe p-5 text-center">
             <p>Meal: <%= link_to recipe.meal.name, view_recipe_meal_path(recipe.meal) %></p>
             <p>Calories: <%= recipe.meal.calories %></p>
             <p>Proteins: <%= recipe.meal.proteins %></p>

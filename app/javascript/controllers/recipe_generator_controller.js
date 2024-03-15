@@ -56,6 +56,13 @@ export default class extends Controller {
 
 
     saveMeal(event){
+      const alertBox = document.getElementById('alert');
+      alertBox.style.display = 'block'; // Mostrar la alerta
+
+      // Ocultar la alerta después de un cierto tiempo (por ejemplo, 3 segundos)
+      setTimeout(() => {
+        alertBox.style.display = 'none';
+      }, 3000);
       event.currentTarget.classList.toggle('border')
       event.currentTarget.classList.toggle('border-3')
       event.currentTarget.classList.toggle('border-danger')

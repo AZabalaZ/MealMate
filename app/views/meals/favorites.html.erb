@@ -1,34 +1,23 @@
 <div class="container3">
-  <h1 style="text-align: center; margin: revert;">My Favorites</h1>
-  <div class="row m-2">
-
+  <h1 class="text-center mb-4">My Favorites</h1>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
     <% @favorite_meals.each do |meal| %>
-      <div class="col-md-4">
-        <div class="favcard card mb-3">
-          <div class="row g-0">
-
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title"><%= link_to meal.name, view_recipe_meal_path(meal) %>
-                <%= button_to recipes_path, method: :post, params: { meal_id: meal.id }, class: "btn delete-recipe mt-4" do %>
-                  Add to My Recipes
-                <% end %>
-                </h5>
-                <p class="card-text fs-4">Calories: <%= meal.calories %></p>
-
-              </div>
-            </div>
-
-            <div class="card-footer text-end">
-              <%= button_to remove_from_favorites_meal_path(meal), method: :delete, class: "deletebotton btn" do %>
-                <i class="fa-solid fa-trash"></i>
-              <% end %>
-            </div>
-
+      <div class="col">
+        <div class="favcard card h-100">
+          <div class="card-body">
+            <h5 class="card-title"><%= link_to meal.name, view_recipe_meal_path(meal) %></h5>
+            <p class="card-text fs-6 mb-3">Calories: <%= meal.calories %></p>
+            <%= button_to recipes_path, method: :post, params: { meal_id: meal.id }, class: "btn btn-primary w-100" do %>
+              Add to My Recipes
+            <% end %>
+          </div>
+          <div class="text-end">
+            <%= button_to remove_from_favorites_meal_path(meal), method: :delete, class: "deletebotton" do %>
+              <i class="fa-solid fa-trash"></i>
+            <% end %>
           </div>
         </div>
       </div>
     <% end %>
-
   </div>
 </div>
