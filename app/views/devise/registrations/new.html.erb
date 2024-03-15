@@ -1,12 +1,12 @@
 <div class="ring">
-  <i style="--clr:#00ff0a;"></i>
-  <i style="--clr:#ff0057;"></i>
-  <i style="--clr:#fffd44;"></i>
+  <i style="--clr:#00fad4;"></i>
+  <i style="--clr:#ffffff;"></i>
+  <i style="--clr:#ff0101;"></i>
 
   <div class="login">
-    <h2>Sign Up for Free</h2>
+    <h2 class="text-center">Sign Up for Free</h2>
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "mt-5" }) do |f| %>
     <%= f.error_notification %>
 
     <div class="inputBx">
@@ -48,7 +48,7 @@
     </div>
   <% end %>
 
-  <div class="links">
+  <div class="links text-center">
     <%= render "devise/shared/links" %>
   </div>
 
