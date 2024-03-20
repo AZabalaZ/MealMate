@@ -1,7 +1,8 @@
 class MealsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
-    @meals = Meal.all
+    @meals = current_user.meals
   end
 
   # def foods
@@ -13,7 +14,7 @@ class MealsController < ApplicationController
   end
 
   def create
-    @meal = Meal.new(meal_params)
+    @meal = current_user.meals.build(meal_params) # Asocia la nueva comida con el usuario actual
     if @meal.save
       render json: @meal, status: :created
     else
