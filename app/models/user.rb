@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :meals
   has_many :recipes
+  has_many :ingredients
   # has_many :favorite_meals, through: :recipes, source: :meal
   enum activity: { sedentary: 0, lightly_active: 1, moderately_active: 2, very_active: 3, extra_active: 4 }
   enum goal: { lose_weight: 0, maintain_weight: 1, gain_weight: 2 }

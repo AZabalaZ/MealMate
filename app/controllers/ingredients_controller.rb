@@ -13,7 +13,7 @@ class IngredientsController < ApplicationController
   end
 
   def create
-    @ingredient = Ingredient.new(ingredient_params)
+    @ingredient = current_user.ingredients.build(ingredient_params)  # Asocia el nuevo ingrediente con el usuario actual
     if @ingredient.save
       render json: { message: 'Ingredient created successfully' }, status: :created
     else
@@ -28,7 +28,7 @@ class IngredientsController < ApplicationController
   end
 
   def my_ingredients
-    @my_ingredients = Ingredient.all
+    @my_ingredients = current_user.ingredients
   end
 
   private
