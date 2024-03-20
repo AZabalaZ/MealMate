@@ -2,8 +2,9 @@ class MealsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @meals = Meal.all
+    @meals = current_user.meals
   end
+
 
   # def foods
   #   @foods = Meal.all
@@ -14,13 +15,22 @@ class MealsController < ApplicationController
   end
 
   def create
-    @meal = Meal.new(meal_params)
-    if @meal.save
-      render json: @meal, status: :created
+    if current_user.present?
+      begin
+        @meal = current_user.meals.build(meal_params) # Asocia la nueva comida con el usuario actual
+        if @meal.save
+          render json: @meal, status: :created
+        else
+          render json: @meal.errors, status: :unprocessable_entity
+        end
+      rescue => e
+        render json: { error: "An error occurred while creating the meal: #{e.message}" }, status: :internal_server_error
+      end
     else
-      render json: @meal.errors, status: :unprocessable_entity
+      render json: { error: "User not found" }, status: :not_found
     end
   end
+
 
   def destroy
     @meal = Meal.find(params[:id])
