@@ -90,3 +90,7 @@
 .nav-item.dropdown .dropdown-menu.show {
   opacity: 1; /* Cuando el dropdown está abierto, será completamente visible */
 }
+
+.navbar-toggler-icon {
+  background-color: red; /* Cambiar el color del icono del botón de menú */
+}

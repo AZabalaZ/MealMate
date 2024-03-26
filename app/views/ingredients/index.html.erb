@@ -1,19 +1,16 @@
 <div data-controller="search-ingredients">
-<div class="column d-flex align-content-center position-relative">
-
-  <div class="search d-flex flex-grow-1 pt-2 pb-1 justify-content-center ">
-    <%= form_with(url: ingredients_path, method: :get, html: {data:{search_ingredients_target:"form"}}) do %>
-      <%= text_field_tag :search, params[:search], placeholder: "Search ingredients...", class: "search_input",
-      data: {
-        search_ingredients_target:"input",
-        action: "keyup->search-ingredients#update"
-        } %>
-      <%# <%= submit_tag "Search", class: "search_icon"%>
-    <% end %>
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="search">
+      <%= form_with(url: ingredients_path, method: :get, html: { data: { search_ingredients_target: "form" } }) do %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search ingredients...", class: "search_input",
+            data: {
+              search_ingredients_target: "input",
+              action: "keyup->search-ingredients#update"
+            } %>
+        <%# <%= submit_tag "Search", class: "search_icon"%>
+      <% end %>
+    </div>
+    <%= link_to "My ingredients", my_ingredients_path, class: "my_ingredients" %>
   </div>
-  <div class="mt-4 position-absolute">
-  <%= link_to "My ingredients", my_ingredients_path, class:"my_ingredients" %>
-</div>
-</div>
-    <%= render "list", ingredients: @ingredients %>
+  <%= render "list", ingredients: @ingredients %>
 </div>

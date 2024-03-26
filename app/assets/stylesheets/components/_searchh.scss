@@ -260,3 +260,13 @@ li {
   margin-left: 10px;
   padding-top: 7px;
 }
+
+@media only screen and (max-width: 768px) {
+  .d-flex.justify-content-between.align-items-center.mb-4 {
+    flex-direction: column; // Cambiar a disposición vertical en pantallas pequeñas
+  }
+
+  .search {
+    margin-bottom: 10px; // Agregar margen inferior para separar la barra de búsqueda
+  }
+}

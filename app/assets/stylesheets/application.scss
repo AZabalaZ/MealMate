@@ -37,3 +37,39 @@
   font-weight: bold;
   font-style: italic;
 }
+
+/* Estilos generales */
+
+// Estilos para pantallas pequeñas
+@media only screen and (max-width: 768px) {
+  .container2,
+  .container4 {
+    max-width: 90%; // Reducir el ancho máximo para pantallas pequeñas
+  }
+
+  .menu-container {
+    max-width: 90%; // Reducir el ancho máximo del contenedor de menú para pantallas pequeñas
+  }
+
+  .col-4 .img-fluid {
+    max-width: 100%; // Asegurar que las imágenes se ajusten al ancho del contenedor en pantallas pequeñas
+  }
+
+  // Agregar más estilos específicos para pantallas pequeñas según sea necesario
+}
+
+// Estilos para pantallas medianas
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  // Agregar estilos específicos para pantallas medianas según sea necesario
+}
+
+// Estilos para pantallas grandes
+@media only screen and (min-width: 1025px) {
+  // Agregar estilos específicos para pantallas grandes según sea necesario
+}
+
+@media only screen and (max-width: 768px) {
+  .d-flex.flex-wrap {
+    flex-direction: column; /* Cambiar a disposición de columna en dispositivos móviles */
+  }
+}
